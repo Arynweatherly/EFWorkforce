@@ -108,6 +108,7 @@ namespace EFWorkforce.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,DepartmentId,IsSupervisor,ComputerId")] Employee employee)
+            //where do i get employee from? comes from the body of the request 
         {
             if (id != employee.Id)
             {
@@ -148,7 +149,7 @@ namespace EFWorkforce.Controllers
             }
 
             var employee = await _context.Employee
-                .Include(e => e.Computer)
+
                 .Include(e => e.Department)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
