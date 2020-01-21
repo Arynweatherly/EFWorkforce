@@ -14,6 +14,8 @@ namespace EFWorkforce.Models
 
         public int Budget { get; set; }
 
+
+
         public List<Employee> Employees { get; set; }
        
     }
